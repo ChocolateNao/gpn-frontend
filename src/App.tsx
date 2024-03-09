@@ -13,7 +13,7 @@ import FetchError from './components/FetchError';
 
 function App() {
   const { data, loading, errorCode } = useFetchData(
-    'https://65ec4b420ddee626c9afecaf.mockapi.io/api/ratesd'
+    'https://65ec4b420ddee626c9afecaf.mockapi.io/api/rates'
   );
 
   if (errorCode)
