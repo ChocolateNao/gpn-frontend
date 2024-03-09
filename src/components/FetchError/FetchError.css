@@ -1,0 +1,18 @@
+.error__container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.error__text {
+  line-height: 30px;
+  font-size: 20px;
+  letter-spacing: 0;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
