@@ -1,4 +1,4 @@
-interface ImutationsList {
+interface IMutationsList {
   type: string;
 }
 
@@ -13,9 +13,7 @@ export function forceResizeCharts(fn: Function) {
   };
 
   if (target) {
-    const callback = function (
-      mutationsList: ImutationsList[],
-    ) {
+    const callback = function (mutationsList: IMutationsList[]) {
       for (const mutation of mutationsList) {
         if (mutation.type === 'attributes') {
           fn();

@@ -1,6 +1,8 @@
 //Данные для приложения
 
-const mockData = [
+import { IExchangeRate } from '../models/exchangeRate.interface';
+
+export const mockData: IExchangeRate[] = [
   {
     date: '2016-02-01',
     month: 'фев 2016',

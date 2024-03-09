@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import * as echarts from 'echarts';
 import type { CSSProperties } from 'react';
 
-import { forceResizeCharts } from './UtilsForCharts';
+import { forceResizeCharts } from '../../utils/charts';
 
 interface IOnEvents {
   type: string;
@@ -19,13 +19,11 @@ export interface ReactEChartsProps {
   forceResize?: boolean;
 }
 
-
 export interface ILegendselectchangedParams {
   name: string;
   selected: Record<string, boolean>;
   type: string;
 }
-
 
 export function ReactECharts({
   option,
@@ -55,6 +53,7 @@ export function ReactECharts({
 
     let observer: MutationObserver | false | undefined = false;
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     if (forceResize) observer = forceResizeCharts(resizeChart);
 
     // Return cleanup function
@@ -62,6 +61,7 @@ export function ReactECharts({
       chart?.dispose();
       window.removeEventListener('resize', resizeChart);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [theme]);
 
   useEffect(() => {
