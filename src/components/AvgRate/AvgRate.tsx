@@ -1,15 +1,15 @@
 import { useCurrency } from '../../hooks/useCurrency';
 import { useFilteredData } from '../../hooks/useFilteredData';
-import type { IExchangeRate } from '../../models/exchangeRate.interface';
+import type { IExchangeRateData } from '../../models/exchangeRate.interface';
 import './AvgRate.css';
 
 interface AvgRateProps {
-  data: IExchangeRate[];
+  data: IExchangeRateData[];
 }
 
 function AvgRate({ data }: AvgRateProps) {
   const { currency } = useCurrency();
-  const filteredData: IExchangeRate[] = useFilteredData(data, currency);
+  const filteredData: IExchangeRateData[] = useFilteredData(data, currency);
 
   const sumRate: number = filteredData.reduce((acc, cur) => {
     acc += cur.value;

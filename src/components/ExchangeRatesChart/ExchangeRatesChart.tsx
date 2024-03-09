@@ -1,21 +1,26 @@
-import type { IExchangeRate } from '../../models/exchangeRate.interface';
+import type { IExchangeRateData } from '../../models/exchangeRate.interface';
 import ReactECharts from '../Echarts';
 import { useCurrency } from '../../hooks/useCurrency';
 import type { CSSProperties } from 'react';
 import { useFilteredData } from '../../hooks/useFilteredData';
 
 interface ExchangeRatesChartProps {
-  data: IExchangeRate[];
+  data: IExchangeRateData[];
   style?: CSSProperties;
 }
 
 function ExchangeRatesChart({ data, style }: ExchangeRatesChartProps) {
   const { currency } = useCurrency();
-  const filteredData: IExchangeRate[] = useFilteredData(data, currency);
+  const filteredData: IExchangeRateData[] = useFilteredData(data, currency);
 
   // Since the given component's type is "any"
   const options: any = {
-    tooltip: {},
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'line',
+      },
+    },
     xAxis: {
       data: filteredData.map((item) => item.month),
     },
@@ -25,6 +30,7 @@ function ExchangeRatesChart({ data, style }: ExchangeRatesChartProps) {
         name: filteredData[0].indicator,
         type: 'line',
         data: filteredData.map((item) => item.value),
+        itemStyle: { color: '#F38B00' },
       },
     ],
   };
@@ -36,7 +42,7 @@ function ExchangeRatesChart({ data, style }: ExchangeRatesChartProps) {
         style
           ? style
           : {
-              maxHeight: '370px',
+              minHeight: '370px',
               maxWidth: '1000px',
             }
       }
