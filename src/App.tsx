@@ -19,11 +19,10 @@ function App() {
   if (errorCode)
     return (
       <Theme preset={presetGpnDefault}>
-      <div className="app__container">
-        <FetchError statusCode={errorCode} />
-      </div>
+        <div className="app__container">
+          <FetchError statusCode={errorCode} />
+        </div>
       </Theme>
-
     );
 
   return (

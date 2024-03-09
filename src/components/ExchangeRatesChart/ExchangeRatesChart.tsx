@@ -12,6 +12,7 @@ interface ExchangeRatesChartProps {
 function ExchangeRatesChart({ data, style }: ExchangeRatesChartProps) {
   const { currency } = useCurrency();
   const filteredData: IExchangeRateData[] = useFilteredData(data, currency);
+  const filteredDataByValues = filteredData.map((item) => item.value);
 
   // Since the given component's type is "any"
   const options: any = {
@@ -24,12 +25,15 @@ function ExchangeRatesChart({ data, style }: ExchangeRatesChartProps) {
     xAxis: {
       data: filteredData.map((item) => item.month),
     },
-    yAxis: {},
+    yAxis: {
+      min: Math.min(...filteredDataByValues),
+      max: Math.max(...filteredDataByValues),
+    },
     series: [
       {
         name: filteredData[0].indicator,
         type: 'line',
-        data: filteredData.map((item) => item.value),
+        data: filteredDataByValues,
         itemStyle: { color: '#F38B00' },
       },
     ],
