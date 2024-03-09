@@ -13,14 +13,17 @@ import FetchError from './components/FetchError';
 
 function App() {
   const { data, loading, errorCode } = useFetchData(
-    'https://65ec4b420ddee626c9afecaf.mockapi.io/api/rates'
+    'https://65ec4b420ddee626c9afecaf.mockapi.io/api/ratesd'
   );
 
   if (errorCode)
     return (
+      <Theme preset={presetGpnDefault}>
       <div className="app__container">
         <FetchError statusCode={errorCode} />
       </div>
+      </Theme>
+
     );
 
   return (

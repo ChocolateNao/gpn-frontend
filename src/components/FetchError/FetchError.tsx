@@ -1,3 +1,4 @@
+import { Button } from '@consta/uikit/Button';
 import './FetchError.css';
 
 interface ErrorProps {
@@ -10,6 +11,10 @@ function FetchError({ statusCode }: ErrorProps) {
       <p className="error__text">
         {statusCode} | Упс, прошлошла ошибка. Попробуйте снова
       </p>
+      <Button
+        label="Перезагрузить страницу"
+        onClick={() => window.location.reload()}
+      />
     </div>
   );
 }
