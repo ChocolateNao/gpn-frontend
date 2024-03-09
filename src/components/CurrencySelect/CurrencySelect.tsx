@@ -1,9 +1,7 @@
-import {
-  ChoiceGroup,
-  ChoiceGroupPropOnChange,
-} from '@consta/uikit/ChoiceGroup';
+import type { ChoiceGroupPropOnChange } from '@consta/uikit/ChoiceGroup';
+import { ChoiceGroup } from '@consta/uikit/ChoiceGroup';
 import { useCurrency } from '../../hooks/useCurrency';
-import { TCurrency } from '../../models/currency.type';
+import type { TCurrency } from '../../models/currency.type';
 import { CurrencyTypeEnum } from '../../enums/currencyType.enum';
 
 function CurrencySelect() {
