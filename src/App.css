@@ -1,0 +1,25 @@
+.app__container {
+  min-width: 1200px;
+  min-height: 400px;
+  padding: 0 10px;
+}
+
+.app__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 8px 8px 0 13px;
+}
+
+.app__chart {
+  display: flex;
+  align-items: center;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
