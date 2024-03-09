@@ -1,17 +1,4 @@
-import { useState } from 'react';
-import { TCurrency } from '../models/currency.type';
-import { CurrencyTypeEnum } from '../enums/currencyType.enum';
+import { useContext } from 'react';
+import { CurrencyContext } from '../context/currencyTypeContext';
 
-export const useCurrency = () => {
-  const initCurrency: TCurrency =
-    (localStorage.getItem('CHOCONAO_currency') as TCurrency) ??
-    CurrencyTypeEnum.USD;
-  const [currency, setCurrency] = useState<TCurrency>(initCurrency);
-
-  const updateCurrency = (currency: TCurrency) => {
-    setCurrency(currency);
-    localStorage.setItem('CHOCONAO_currency', currency);
-  };
-
-  return { currency, updateCurrency };
-};
+export const useCurrency = () => useContext(CurrencyContext);
