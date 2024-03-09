@@ -1,7 +1,12 @@
-import React from 'react';
+import CurrencySelect from './components/CurrencySelect';
+import { Theme, presetGpnDefault } from '@consta/uikit/Theme';
 
 function App() {
-  return <div>Тут будет приложение.</div>;
+  return (
+    <Theme preset={presetGpnDefault}>
+      <CurrencySelect />
+    </Theme>
+  );
 }
 
 export default App;
